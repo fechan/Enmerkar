@@ -2,7 +2,6 @@ package io.github.fechan.enmerkar.commands;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
