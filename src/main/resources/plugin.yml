@@ -1,0 +1,35 @@
+name: Enmerkar
+main: io.github.fechan.enmerkar.Enmerkar
+version: 0.1
+commands:
+    addword:
+      description: "Add a word to your starting nation's dictionary."
+      usage: "/addword <word> <english definition>"
+      permission: io.github.fechan.enmerkar.canAddWords
+    define:
+      aliases: [getword, odej]
+      description: "Get the definition of a word from a your starting nation's dictionary."
+      usage: "/define <word>"
+      permission: io.github.fechan.enmerkar.canGetWords
+    searchdefinitions:
+      description: "Search through your original national dictionary's definitions for keywords."
+      usage: "/searchdefinitions <keyword>"
+      permission: io.github.fechan.enmerkar.canSearchDefs
+    setnation:
+      description: "Set the original nationality of a player."
+      usage: "/setnation <player> <nation>"
+      permission: io.github.fechan.enmerkar.canSetNation
+permissions:
+  io.github.fechan.enmerkar.canAddWords:
+    description: "Allows you to add words to your nation's dictionary."
+    default: true
+  io.github.fechan.enmerkar.canGetWords:
+    description: "Allows you to get the definition of words in your nation's dictionary."
+    default: true
+  io.github.fechan.enmerkar.canSearchDefs:
+    description: "Allows you to search within definitions of words in your nation's dictionary."
+    default: true
+  io.github.fechan.enmerkar.canSetNation:
+    default: true
+    description: "Allows you to set the nationality of any player."
+    default: op
