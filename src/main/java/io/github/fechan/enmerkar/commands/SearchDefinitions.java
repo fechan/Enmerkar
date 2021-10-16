@@ -24,8 +24,14 @@ public class SearchDefinitions implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) return false;
-        if (args.length == 0) return false;
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "This command must be run by a player");
+            return false;
+        }
+        if (args.length == 0) {
+            sender.sendMessage(ChatColor.RED + "You must supply a key word or phrase to search for");
+            return false;
+        }
 
         String nation = this.pluginConfig.getString("nationality." + sender.getName());
         String searchTerm = String.join(" ", args).toLowerCase();

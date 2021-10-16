@@ -14,22 +14,23 @@ commands:
     searchdefinitions:
       description: "Search through your original national dictionary's definitions for a key word or phrase."
       usage: "/searchdefinitions <key word or phrase>"
-      permission: io.github.fechan.enmerkar.canSearchDefs
+      permission: io.github.fechan.enmerkar.canGetWords
     setnation:
       description: "Set the original nationality of a player."
       usage: "/setnation <player> <nation>"
-      permission: io.github.fechan.enmerkar.canSetNation
+      permission: io.github.fechan.enmerkar.manageNationality   
+    unsetnation:
+      description: "Unset the original nationality of a player."
+      usage: "/unsetnation <player>"
+      permission: io.github.fechan.enmerkar.manageNationality
 permissions:
   io.github.fechan.enmerkar.canAddWords:
     description: "Allows you to add words to your nation's dictionary."
     default: true
   io.github.fechan.enmerkar.canGetWords:
-    description: "Allows you to get the definition of words in your nation's dictionary."
+    description: "Allows you to read and search your nation's dictionary.."
     default: true
-  io.github.fechan.enmerkar.canSearchDefs:
-    description: "Allows you to search within definitions of words in your nation's dictionary."
+  io.github.fechan.enmerkar.manageNationality:
     default: true
-  io.github.fechan.enmerkar.canSetNation:
-    default: true
-    description: "Allows you to set the nationality of any player."
+    description: "Allows you to set and unset the nationality of any player."
     default: op

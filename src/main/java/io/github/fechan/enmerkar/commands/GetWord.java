@@ -23,8 +23,14 @@ public class GetWord implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] searchLemmas) {
-        if (!(sender instanceof Player)) return false;
-        if (searchLemmas.length == 0) return false;
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "This command must be run by a player");
+            return false;
+        }
+        if (searchLemmas.length == 0) {
+            sender.sendMessage(ChatColor.RED + "You must search for at least one word");
+            return false;
+        }
     
         String nation = this.pluginConfig.getString("nationality." + sender.getName());
 

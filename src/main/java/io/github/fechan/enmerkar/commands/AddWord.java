@@ -23,8 +23,14 @@ public class AddWord implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) return false;
-        if (args.length < 2) return false;
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "This command must be run by a player");
+            return false;
+        }
+        if (args.length < 2) {
+            sender.sendMessage(ChatColor.RED + "When adding a word, you must have both a word to define and its definition");
+            return false;
+        }
         
         String lemma = args[0];
         String definition = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
