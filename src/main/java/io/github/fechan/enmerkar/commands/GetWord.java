@@ -1,30 +1,32 @@
 package io.github.fechan.enmerkar.commands;
 
 import java.io.File;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 public class GetWord implements CommandExecutor {
-    private File dataFolder;
     private FileConfiguration pluginConfig;
+    private File dataFolder;
 
     public GetWord(File dataFolder, FileConfiguration pluginConfig) {
-        this.dataFolder = dataFolder;
         this.pluginConfig = pluginConfig;
+        this.dataFolder = dataFolder;
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] searchLemmas) {
         if (!(sender instanceof Player)) return false;
-
+        if (searchLemmas.length == 0) return false;
+    
         String nation = this.pluginConfig.getString("nationality." + sender.getName());
-        String lemma = args[0];
 
         File lexiconFile = new File(dataFolder, nation + ".yml");
         if (!lexiconFile.exists()) {
@@ -32,12 +34,18 @@ public class GetWord implements CommandExecutor {
             return true;
         }
         YamlConfiguration lexicon = YamlConfiguration.loadConfiguration(lexiconFile);
-        
-        String definition = lexicon.getString(lemma);
-        if (definition == null) {
-            sender.sendMessage(ChatColor.RED + lemma + " is not in " + nation + "'s dictionary");
-        } else {
-            sender.sendMessage("Definition of " + lemma + ": " + definition);
+
+        List<String> failedWords = new ArrayList<>();
+        for (String lemma : searchLemmas) {
+            String definition = lexicon.getString(lemma);
+            if (definition == null) {
+                failedWords.add(lemma);
+            } else {
+                sender.sendMessage("Definition of " + lemma + ": " + definition);
+            }
+        }
+        if (failedWords.size() > 0) {
+            sender.sendMessage(ChatColor.RED + "No definition found for the following words: " + String.join(", ", failedWords));
         }
         return true;
     }
