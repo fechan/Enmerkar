@@ -46,6 +46,7 @@ public class SearchDefinitions implements CommandExecutor {
         }
         YamlConfiguration lexicon = YamlConfiguration.loadConfiguration(lexiconFile);
 
+        sender.sendMessage(ChatColor.GRAY + "Searching definitions for: " + searchTerm);
         boolean found = false;
         for (Map.Entry<String, Object> entry : lexicon.getValues(false).entrySet()) {
             String definition = (String) entry.getValue();
