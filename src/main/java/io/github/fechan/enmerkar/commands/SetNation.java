@@ -17,6 +17,8 @@ public class SetNation implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length < 2) return false;
+
         String player = args[0];
         String nation = args[1];
 

@@ -24,6 +24,7 @@ public class AddWord implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) return false;
+        if (args.length < 2) return false;
         
         String lemma = args[0];
         String definition = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
