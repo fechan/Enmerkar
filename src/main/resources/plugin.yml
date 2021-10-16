@@ -7,6 +7,10 @@ commands:
       description: "Edit an existing word or add a word to your starting nation's dictionary."
       usage: "/editword <word> <english definition>"
       permission: io.github.fechan.enmerkar.canAddWords
+    deleteword:
+      description: "Delete a word from your starting nation's dictionary."
+      usage: "/deleteword <word>"
+      permission: io.github.fechan.enmerkar.canDeletewords
     define:
       aliases: [getword, odej]
       description: "Get the definition of a word from a your starting nation's dictionary."
@@ -27,6 +31,9 @@ commands:
 permissions:
   io.github.fechan.enmerkar.canAddWords:
     description: "Allows you to add words to your nation's dictionary."
+    default: true
+  io.github.fechan.enmerkar.canDeleteWords:
+    description: "Allows you to delete words from your nation's dictionary."
     default: true
   io.github.fechan.enmerkar.canGetWords:
     description: "Allows you to read and search your nation's dictionary.."

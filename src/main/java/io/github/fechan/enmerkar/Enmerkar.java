@@ -17,6 +17,7 @@ public class Enmerkar extends JavaPlugin
         FileConfiguration config = this.getConfig();
 
         this.getCommand("editword").setExecutor(new AddWord(dataFolder, config));
+        this.getCommand("deleteword").setExecutor(new DeleteWord(dataFolder, config));
         this.getCommand("define").setExecutor(new GetWord(dataFolder, config));
         this.getCommand("searchdefinitions").setExecutor(new SearchDefinitions(dataFolder, config));
         this.getCommand("setnation").setExecutor(new SetNation(this));
