@@ -26,6 +26,10 @@ public class SetNation implements CommandExecutor {
         String player = args[0];
         String nation = args[1];
 
+        if (!nation.matches("^[a-zA-Z0-9_]*$")) {
+            sender.sendMessage(ChatColor.RED + "Nation names must be alphanumeric and contain no spaces (underscores are allowed)");
+        }
+
         this.pluginConfig.set("nationality." + player, nation);
         this.plugin.saveConfig();
         sender.sendMessage("Set the nationality of " + player + " to " + nation);
