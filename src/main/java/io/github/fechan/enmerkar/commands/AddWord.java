@@ -36,6 +36,11 @@ public class AddWord implements CommandExecutor {
         String definition = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
         String nation = this.pluginConfig.getString("nationality." + sender.getName());
 
+        if (nation == null) {
+            sender.sendMessage(ChatColor.RED + "You must be in a nation to use this command!");
+            return true;
+        }
+
         File lexiconFile = new File(dataFolder, nation + ".yml");
         if (!lexiconFile.exists()) {
             try { lexiconFile.createNewFile(); }

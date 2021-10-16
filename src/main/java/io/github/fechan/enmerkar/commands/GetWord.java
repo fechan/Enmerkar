@@ -34,6 +34,11 @@ public class GetWord implements CommandExecutor {
     
         String nation = this.pluginConfig.getString("nationality." + sender.getName());
 
+        if (nation == null) {
+            sender.sendMessage(ChatColor.RED + "You must be in a nation to use this command!");
+            return true;
+        }
+
         File lexiconFile = new File(dataFolder, nation + ".yml");
         if (!lexiconFile.exists()) {
             sender.sendMessage(ChatColor.RED + nation + "does not currently have any words in its dictionary");
