@@ -25,6 +25,7 @@ public class SetNation implements CommandExecutor {
         this.pluginConfig.set("nationality." + player, nation);
         this.plugin.saveConfig();
         sender.sendMessage("Set the nationality of " + player + " to " + nation);
+
         return true;
     }
 }
