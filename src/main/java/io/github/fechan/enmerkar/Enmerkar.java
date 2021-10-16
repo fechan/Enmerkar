@@ -11,7 +11,7 @@ public class Enmerkar extends JavaPlugin
 {
     @Override
     public void onEnable(){
-        getLogger().info("Enmerkar plugin enabled!");
+        getLogger().info("Enmerkar by Frederick Chan enabled! Enjoy conlanging!");
         this.saveDefaultConfig();
         File dataFolder = this.getDataFolder();
         FileConfiguration config = this.getConfig();
