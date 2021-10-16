@@ -12,8 +12,8 @@ commands:
       usage: "/define <word>"
       permission: io.github.fechan.enmerkar.canGetWords
     searchdefinitions:
-      description: "Search through your original national dictionary's definitions for keywords."
-      usage: "/searchdefinitions <keyword>"
+      description: "Search through your original national dictionary's definitions for a key word or phrase."
+      usage: "/searchdefinitions <key word or phrase>"
       permission: io.github.fechan.enmerkar.canSearchDefs
     setnation:
       description: "Set the original nationality of a player."

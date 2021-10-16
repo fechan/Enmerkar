@@ -18,6 +18,7 @@ public class Enmerkar extends JavaPlugin
 
         this.getCommand("addword").setExecutor(new AddWord(dataFolder, config));
         this.getCommand("define").setExecutor(new GetWord(dataFolder, config));
+        this.getCommand("searchdefinitions").setExecutor(new SearchDefinitions(dataFolder, config));
         this.getCommand("setnation").setExecutor(new SetNation(this));
     }
 
