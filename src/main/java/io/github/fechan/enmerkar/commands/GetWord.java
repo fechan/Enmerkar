@@ -46,6 +46,7 @@ public class GetWord implements CommandExecutor {
         }
         YamlConfiguration lexicon = YamlConfiguration.loadConfiguration(lexiconFile);
 
+        sender.sendMessage(ChatColor.GRAY + "Getting definitions for " + searchLemmas.length + " words");
         List<String> failedWords = new ArrayList<>();
         for (String lemma : searchLemmas) {
             String definition = lexicon.getString(lemma);
