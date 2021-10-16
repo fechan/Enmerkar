@@ -1,6 +1,6 @@
 name: Enmerkar
 main: io.github.fechan.enmerkar.Enmerkar
-version: 0.1
+version: 1.0
 commands:
     addword:
       description: "Add a word to your starting nation's dictionary."
